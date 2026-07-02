@@ -16,21 +16,22 @@ significant year-on-year variability across the 2005-2023 period.
 
 The most important pattern is a sustained low-resource trough that
 ran from roughly 2015 to 2021. During that period, most Terai and
-Hill zones fell 8-13% below their 2005 baseline and stayed there.
-Not for a single year. For approximately six consecutive years. The
+Hill zones fell 10-13% below their 2005 baseline and stayed there.
+Not for a single year. For approximately seven consecutive years. The
 resource recovered toward 2005 levels by 2022-2023.
 
 The net change from 2005 to 2023 averages -1.4% across all 33
 districts. Seven districts show a net gain. Twenty-six show a net
 decline. The range is +2.5% (Jhapa, Eastern Terai) to -3.8% (Dolpa,
-High Mountain). But the six-year trough is what matters for project
+High Mountain). But the seven-year trough is what matters for project
 financing, not the 19-year average.
 
-A project financed in 2010 using 2005-2010 historical GHI averages
-as the yield basis would have received 8-13% less generation than
-assumed every year from 2015 to 2021. Standard P50 yield estimates
-do not model sustained multi-year resource troughs. This analysis
-documents that such a trough happened.
+Most of Nepal's utility scale solar projects were commissioned between
+2020 and 2023, confirmed against the DOED licensing registry. A project 
+financed on pre-trough historical resource averages would have received 
+10-13% less generation than assumed every year from 2015 to 2021. Standard 
+P50 yield estimates do not model sustained multi-year resource troughs. This
+analysis documents that such a trough happened.
 
 ---
 
