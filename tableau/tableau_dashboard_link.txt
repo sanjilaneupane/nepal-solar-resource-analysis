@@ -1,0 +1,7 @@
+Nepal Solar Resource Analysis — Interactive Dashboard (Tableau Public)
+
+https://public.tableau.com/app/profile/s.neupane/viz/NepalSolarResourceAnalysis-InteractiveDashboard/Dashboard
+
+Includes: zone-level GHI trend with 2015-2021 trough band, district
+variability rankings (30 most/least variable by CoV), DSCR sensitivity
+tables for Scenario A and Scenario B.

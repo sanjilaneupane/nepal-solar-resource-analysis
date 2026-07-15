@@ -1,0 +1,146 @@
+scenario_name,capex_per_mw,tariff,debt_ratio,interest_rate,loan_term_years,project_year,resource_case,ghi_value,dscr_value,status
+Scenario A,80000000,7.3,0.75,0.09,12,1,P50 (2005-2023 mean),1658.3,1.319,OK
+Scenario A,80000000,7.3,0.75,0.09,12,1,Trough avg (2015-2021),1625.3,1.292,OK
+Scenario A,80000000,7.3,0.75,0.09,12,1,Worst year (2020-2021 avg),1579.9,1.256,OK
+Scenario A,80000000,7.3,0.75,0.09,12,5,P50 (2005-2023 mean),1658.3,1.292,OK
+Scenario A,80000000,7.3,0.75,0.09,12,5,Trough avg (2015-2021),1625.3,1.267,OK
+Scenario A,80000000,7.3,0.75,0.09,12,5,Worst year (2020-2021 avg),1579.9,1.231,OK
+Scenario A,80000000,7.3,0.75,0.09,12,10,P50 (2005-2023 mean),1658.3,1.26,OK
+Scenario A,80000000,7.3,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.235,OK
+Scenario A,80000000,7.3,0.75,0.09,12,10,Worst year (2020-2021 avg),1579.9,1.201,OK
+Scenario A,85000000,7.3,0.75,0.09,12,1,P50 (2005-2023 mean),1658.3,1.241,OK
+Scenario A,85000000,7.3,0.75,0.09,12,1,Trough avg (2015-2021),1625.3,1.216,OK
+Scenario A,85000000,7.3,0.75,0.09,12,1,Worst year (2020-2021 avg),1579.9,1.182,Below covenant
+Scenario A,85000000,7.3,0.75,0.09,12,5,P50 (2005-2023 mean),1658.3,1.216,OK
+Scenario A,85000000,7.3,0.75,0.09,12,5,Trough avg (2015-2021),1625.3,1.192,Below covenant
+Scenario A,85000000,7.3,0.75,0.09,12,5,Worst year (2020-2021 avg),1579.9,1.159,Below covenant
+Scenario A,85000000,7.3,0.75,0.09,12,10,P50 (2005-2023 mean),1658.3,1.186,Below covenant
+Scenario A,85000000,7.3,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.163,Below covenant
+Scenario A,85000000,7.3,0.75,0.09,12,10,Worst year (2020-2021 avg),1579.9,1.13,Below covenant
+Scenario B,75000000,5.94,0.75,0.09,15,1,P50 (2005-2023 mean),1658.3,1.252,OK
+Scenario B,75000000,5.94,0.75,0.09,15,1,Trough avg (2015-2021),1625.3,1.227,OK
+Scenario B,75000000,5.94,0.75,0.09,15,1,Worst year (2020-2021 avg),1579.9,1.193,Below covenant
+Scenario B,75000000,5.94,0.75,0.09,15,5,P50 (2005-2023 mean),1658.3,1.227,OK
+Scenario B,75000000,5.94,0.75,0.09,15,5,Trough avg (2015-2021),1625.3,1.203,OK
+Scenario B,75000000,5.94,0.75,0.09,15,5,Worst year (2020-2021 avg),1579.9,1.169,Below covenant
+Scenario B,75000000,5.94,0.75,0.09,15,10,P50 (2005-2023 mean),1658.3,1.197,Below covenant
+Scenario B,75000000,5.94,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.173,Below covenant
+Scenario B,75000000,5.94,0.75,0.09,15,10,Worst year (2020-2021 avg),1579.9,1.14,Below covenant
+Scenario B,75000000,5.55,0.75,0.09,15,1,P50 (2005-2023 mean),1658.3,1.157,Below covenant
+Scenario B,75000000,5.55,0.75,0.09,15,1,Trough avg (2015-2021),1625.3,1.134,Below covenant
+Scenario B,75000000,5.55,0.75,0.09,15,1,Worst year (2020-2021 avg),1579.9,1.102,Below covenant
+Scenario B,75000000,5.55,0.75,0.09,15,5,P50 (2005-2023 mean),1658.3,1.134,Below covenant
+Scenario B,75000000,5.55,0.75,0.09,15,5,Trough avg (2015-2021),1625.3,1.111,Below covenant
+Scenario B,75000000,5.55,0.75,0.09,15,5,Worst year (2020-2021 avg),1579.9,1.08,Below covenant
+Scenario B,75000000,5.55,0.75,0.09,15,10,P50 (2005-2023 mean),1658.3,1.106,Below covenant
+Scenario B,75000000,5.55,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.084,Below covenant
+Scenario B,75000000,5.55,0.75,0.09,15,10,Worst year (2020-2021 avg),1579.9,1.054,Below covenant
+Scenario B,75000000,5.28,0.75,0.09,15,1,P50 (2005-2023 mean),1658.3,1.091,Below covenant
+Scenario B,75000000,5.28,0.75,0.09,15,1,Trough avg (2015-2021),1625.3,1.07,Below covenant
+Scenario B,75000000,5.28,0.75,0.09,15,1,Worst year (2020-2021 avg),1579.9,1.04,Below covenant
+Scenario B,75000000,5.28,0.75,0.09,15,5,P50 (2005-2023 mean),1658.3,1.07,Below covenant
+Scenario B,75000000,5.28,0.75,0.09,15,5,Trough avg (2015-2021),1625.3,1.048,Below covenant
+Scenario B,75000000,5.28,0.75,0.09,15,5,Worst year (2020-2021 avg),1579.9,1.019,Below covenant
+Scenario B,75000000,5.28,0.75,0.09,15,10,P50 (2005-2023 mean),1658.3,1.043,Below covenant
+Scenario B,75000000,5.28,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.022,Below covenant
+Scenario B,75000000,5.28,0.75,0.09,15,10,Worst year (2020-2021 avg),1579.9,0.994,DEFAULT RISK
+Scenario B,75000000,5.0,0.75,0.09,15,1,P50 (2005-2023 mean),1658.3,1.023,Below covenant
+Scenario B,75000000,5.0,0.75,0.09,15,1,Trough avg (2015-2021),1625.3,1.003,Below covenant
+Scenario B,75000000,5.0,0.75,0.09,15,1,Worst year (2020-2021 avg),1579.9,0.975,DEFAULT RISK
+Scenario B,75000000,5.0,0.75,0.09,15,5,P50 (2005-2023 mean),1658.3,1.003,Below covenant
+Scenario B,75000000,5.0,0.75,0.09,15,5,Trough avg (2015-2021),1625.3,0.983,DEFAULT RISK
+Scenario B,75000000,5.0,0.75,0.09,15,5,Worst year (2020-2021 avg),1579.9,0.955,DEFAULT RISK
+Scenario B,75000000,5.0,0.75,0.09,15,10,P50 (2005-2023 mean),1658.3,0.978,DEFAULT RISK
+Scenario B,75000000,5.0,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,0.958,DEFAULT RISK
+Scenario B,75000000,5.0,0.75,0.09,15,10,Worst year (2020-2021 avg),1579.9,0.932,DEFAULT RISK
+Scenario A - Grid,75000000,6.5,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.156,Below covenant
+Scenario A - Grid,80000000,6.5,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.083,Below covenant
+Scenario A - Grid,85000000,6.5,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.02,Below covenant
+Scenario A - Grid,90000000,6.5,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,0.963,DEFAULT RISK
+Scenario A - Grid,95000000,6.5,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,0.912,DEFAULT RISK
+Scenario A - Grid,75000000,6.9,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.237,OK
+Scenario A - Grid,80000000,6.9,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.159,Below covenant
+Scenario A - Grid,85000000,6.9,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.091,Below covenant
+Scenario A - Grid,90000000,6.9,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.031,Below covenant
+Scenario A - Grid,95000000,6.9,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,0.976,DEFAULT RISK
+Scenario A - Grid,75000000,7.1,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.277,OK
+Scenario A - Grid,80000000,7.1,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.197,Below covenant
+Scenario A - Grid,85000000,7.1,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.127,Below covenant
+Scenario A - Grid,90000000,7.1,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.064,Below covenant
+Scenario A - Grid,95000000,7.1,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.008,Below covenant
+Scenario A - Grid,75000000,7.3,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.318,OK
+Scenario A - Grid,80000000,7.3,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.235,OK
+Scenario A - Grid,85000000,7.3,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.163,Below covenant
+Scenario A - Grid,90000000,7.3,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.098,Below covenant
+Scenario A - Grid,95000000,7.3,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.04,Below covenant
+Scenario A - Grid,75000000,7.5,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.358,OK
+Scenario A - Grid,80000000,7.5,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.273,OK
+Scenario A - Grid,85000000,7.5,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.198,Below covenant
+Scenario A - Grid,90000000,7.5,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.132,Below covenant
+Scenario A - Grid,95000000,7.5,0.75,0.09,12,10,Trough avg (2015-2021),1625.3,1.072,Below covenant
+Scenario B - Grid,60000000,5.0,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.198,Below covenant
+Scenario B - Grid,65000000,5.0,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.106,Below covenant
+Scenario B - Grid,70000000,5.0,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.027,Below covenant
+Scenario B - Grid,75000000,5.0,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,0.958,DEFAULT RISK
+Scenario B - Grid,80000000,5.0,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,0.899,DEFAULT RISK
+Scenario B - Grid,85000000,5.0,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,0.846,DEFAULT RISK
+Scenario B - Grid,60000000,5.1,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.227,OK
+Scenario B - Grid,65000000,5.1,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.132,Below covenant
+Scenario B - Grid,70000000,5.1,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.051,Below covenant
+Scenario B - Grid,75000000,5.1,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,0.981,DEFAULT RISK
+Scenario B - Grid,80000000,5.1,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,0.92,DEFAULT RISK
+Scenario B - Grid,85000000,5.1,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,0.866,DEFAULT RISK
+Scenario B - Grid,60000000,5.2,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.255,OK
+Scenario B - Grid,65000000,5.2,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.159,Below covenant
+Scenario B - Grid,70000000,5.2,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.076,Below covenant
+Scenario B - Grid,75000000,5.2,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.004,Below covenant
+Scenario B - Grid,80000000,5.2,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,0.941,DEFAULT RISK
+Scenario B - Grid,85000000,5.2,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,0.886,DEFAULT RISK
+Scenario B - Grid,60000000,5.3,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.284,OK
+Scenario B - Grid,65000000,5.3,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.185,Below covenant
+Scenario B - Grid,70000000,5.3,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.1,Below covenant
+Scenario B - Grid,75000000,5.3,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.027,Below covenant
+Scenario B - Grid,80000000,5.3,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,0.963,DEFAULT RISK
+Scenario B - Grid,85000000,5.3,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,0.906,DEFAULT RISK
+Scenario B - Grid,60000000,5.4,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.312,OK
+Scenario B - Grid,65000000,5.4,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.211,OK
+Scenario B - Grid,70000000,5.4,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.125,Below covenant
+Scenario B - Grid,75000000,5.4,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.05,Below covenant
+Scenario B - Grid,80000000,5.4,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,0.984,DEFAULT RISK
+Scenario B - Grid,85000000,5.4,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,0.926,DEFAULT RISK
+Scenario B - Grid,60000000,5.5,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.341,OK
+Scenario B - Grid,65000000,5.5,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.238,OK
+Scenario B - Grid,70000000,5.5,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.149,Below covenant
+Scenario B - Grid,75000000,5.5,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.073,Below covenant
+Scenario B - Grid,80000000,5.5,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.006,Below covenant
+Scenario B - Grid,85000000,5.5,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,0.946,DEFAULT RISK
+Scenario B - Grid,60000000,5.6,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.369,OK
+Scenario B - Grid,65000000,5.6,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.264,OK
+Scenario B - Grid,70000000,5.6,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.174,Below covenant
+Scenario B - Grid,75000000,5.6,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.095,Below covenant
+Scenario B - Grid,80000000,5.6,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.027,Below covenant
+Scenario B - Grid,85000000,5.6,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,0.967,DEFAULT RISK
+Scenario B - Grid,60000000,5.7,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.398,OK
+Scenario B - Grid,65000000,5.7,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.29,OK
+Scenario B - Grid,70000000,5.7,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.198,Below covenant
+Scenario B - Grid,75000000,5.7,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.118,Below covenant
+Scenario B - Grid,80000000,5.7,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.048,Below covenant
+Scenario B - Grid,85000000,5.7,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,0.987,DEFAULT RISK
+Scenario B - Grid,60000000,5.8,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.426,OK
+Scenario B - Grid,65000000,5.8,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.317,OK
+Scenario B - Grid,70000000,5.8,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.223,OK
+Scenario B - Grid,75000000,5.8,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.141,Below covenant
+Scenario B - Grid,80000000,5.8,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.07,Below covenant
+Scenario B - Grid,85000000,5.8,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.007,Below covenant
+Scenario B - Grid,60000000,5.9,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.455,OK
+Scenario B - Grid,65000000,5.9,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.343,OK
+Scenario B - Grid,70000000,5.9,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.247,OK
+Scenario B - Grid,75000000,5.9,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.164,Below covenant
+Scenario B - Grid,80000000,5.9,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.091,Below covenant
+Scenario B - Grid,85000000,5.9,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.027,Below covenant
+Scenario B - Grid,60000000,6.0,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.483,OK
+Scenario B - Grid,65000000,6.0,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.369,OK
+Scenario B - Grid,70000000,6.0,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.271,OK
+Scenario B - Grid,75000000,6.0,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.187,Below covenant
+Scenario B - Grid,80000000,6.0,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.112,Below covenant
+Scenario B - Grid,85000000,6.0,0.75,0.09,15,10,Trough avg (2015-2021),1625.3,1.047,Below covenant

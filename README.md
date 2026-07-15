@@ -1,5 +1,34 @@
 # Nepal Solar Resource Analysis
-## Phase 1: GHI Trend and Variability Analysis for 33 Districts (2005-2023)
+
+A solar resource and financial risk analysis of Nepal's utility-scale solar
+development potential, built on PVGIS ERA5 satellite-reanalysis irradiance
+data (2005-2023) and structured to meet the credibility bar expected by
+development finance institutions such as ADB, the World Bank, and IFC.
+
+**Stack:** Python (resource and statistical analysis) then SQL (relational
+modeling and analytical queries) then Tableau (public interactive
+visualization) then Power BI (DAX-driven scenario modeling).
+
+*This analysis is independent and not affiliated with any government
+body, financing institution, or project developer.*
+
+---
+
+## Phase Roadmap
+
+| Phase | Scope | Status |
+|---|---|---|
+| Phase 1 | 33 districts, 2005-2023, GHI trend and variability | Complete |
+| Phase 2 | All 77 districts, P50-P99 exceedance, trough risk scoring, DSCR financial model | Complete |
+| SQL layer | Schema, staging load, DSCR fact load, 8 analytical queries (MySQL 8) | Complete |
+| Tableau Public dashboard | Zone trend, district variability rankings, DSCR sensitivity tables | Complete |
+| Power BI report | DAX measures, live what-if DSCR model, scenario-constrained sliders | Complete |
+| Phase 3 | Aerosol attribution using NASA MERRA-2 data | Planned |
+
+---
+
+## Phase 1: GHI Trend and Variability Analysis (33 districts, 2005-2023)
+
 | | |
 |---|---|
 | **Data source** | PVGIS ERA5, European Commission Joint Research Centre |
@@ -7,9 +36,7 @@
 | **Period** | 2005 to 2023 |
 | **Variable** | Global Horizontal Irradiance (GHI), Direct Normal Irradiance (DNI) |
 
----
-
-## Key Finding
+### Key Finding
 
 Nepal's annual solar resource is not stable. All 33 districts show
 significant year-on-year variability across the 2005-2023 period.
@@ -32,9 +59,7 @@ assumed every year from 2015 to 2021. Standard P50 yield estimates
 do not model sustained multi-year resource troughs. This analysis
 documents that such a trough happened.
 
----
-
-## Charts
+### Phase 1 Charts
 
 | Chart | Description |
 |-------|-------------|
@@ -43,9 +68,7 @@ documents that such a trough happened.
 | `chart3_ghi_decline.png` | Net GHI change per district from 2005 to 2023 endpoint |
 | `chart4_monthly_heatmap.png` | Monthly GHI profile across all 33 districts |
 
----
-
-## Data Files
+### Phase 1 Data Files
 
 | File | Description |
 |------|-------------|
@@ -55,9 +78,7 @@ documents that such a trough happened.
 | `nepal_ghi_decline_summary.csv` | Net change per district, 2005 vs 2023 endpoint |
 | `nepal_ghi_variability.csv` | Inter-annual variability per district (coefficient of variation) |
 
----
-
-## Methodology
+### Phase 1 Methodology
 
 - **API:** PVGIS v5.3 MRcalc endpoint
 - **Database:** PVGIS-ERA5 (ECMWF reanalysis)
@@ -71,13 +92,175 @@ documents that such a trough happened.
 - **Variability metric:** Coefficient of variation (CoV) = standard deviation
   divided by mean, expressed as a percentage over the 19-year period per district.
 
----
-
-## Citation
+### Citation
 
 Huld T., Muller R., Gambardella A. (2012). A new solar radiation database
 for estimating PV performance in Europe and Africa. Solar Energy, 86(6),
 1803-1815.
+
+---
+
+## Phase 2: National Coverage and Financial Risk Model (77 districts)
+
+Phase 2 extends coverage to all 77 districts and moves from resource
+characterization to financial risk quantification. It adds P50-P99
+exceedance modeling, trough duration risk scoring, and a zone-level summary
+across the full national dataset.
+
+The 2015-2021 trough is independently validated through three statistical
+tests: bootstrap resampling, a Wald-Wolfowitz runs test, and a permutation
+test on run length, reconciled against a systematic enumeration of every
+sustained below-average period in the 19-year record. An ENSO/ONI
+correlation test (Pearson r = -0.137, p = 0.576) rules out that mechanism
+as the trough's primary driver, leaving aerosol loading from the
+Indo-Gangetic Plain as the open attribution question for Phase 3. An
+inter-district correlation matrix (average pairwise r = 0.824) tests and
+substantiates the use of a system-wide resource basis in the financial
+model, while identifying specific districts (Humla, Mugu, Dolpa, Jumla)
+where correlation with the rest of the network is materially weaker and
+that basis does not hold as cleanly.
+
+The financial core of Phase 2 is a two-scenario debt service coverage ratio
+(DSCR) model: Scenario A represents Nepal's generation-1 solar cohort at
+the pre-2022 regulated tariff (tariff range NPR 6.50-7.50/kWh, CAPEX
+75-95M/MW, 12-year term), and Scenario B represents current projects
+financed under competitive tariff bidding (approximately 2023-2026; tariff
+range NPR 5.00-6.00/kWh, CAPEX 60-85M/MW, 15-year term), both tested at
+75% debt across a CAPEX and tariff sensitivity grid, three resource cases
+(P50, trough average, worst-year), and multiple project years (1, 5, 10)
+to capture degradation. Every null or negative result, including the ENSO
+test, the district-level risk-tier scoring that never classifies a
+district above Low risk, and the marginal significance of the runs test,
+is reported plainly rather than omitted.
+
+### Phase 2 Data Files
+
+| File | Description |
+|------|-------------|
+| `nepal_districts_lookup.csv` | District name, zone, latitude, longitude for all 77 districts |
+| `nepal_ghi_yearly_trend_77.csv` | Annual GHI per district per year, national coverage |
+| `nepal_ghi_p90_estimates_77.csv` | P50/P75/P90/P99 exceedance estimates per district |
+| `nepal_ghi_variability_77.csv` | Mean, standard deviation, and CoV per district |
+| `nepal_ghi_scenarios_77.csv` | Base/downside/stress resource scenarios per district |
+| `nepal_oni_annual.csv` | Annual DJF Oceanic Nino Index, 2005-2023, for the ENSO correlation test |
+| `nepal_dscr_full_77.csv` | DSCR results for both financing scenarios and their CAPEX/tariff sensitivity grids, long format |
+
+### Phase 2 Charts
+
+| Chart | Description |
+|-------|-------------|
+| `chart1_ghi_ranking_77.png` | Average annual GHI per district (2005-2023 mean), all 77 districts, ranked highest to lowest, color-coded by zone |
+| `chart2_zone_trends_77.png` | Annual GHI trend and percent change from 2005 baseline by zone, all 77 districts, with the 2015-2021 trough period marked |
+| `chart3_net_change_77.png` | Net GHI change per district from 2005 to 2023 endpoint, all 77 districts |
+| `chart4_monthly_heatmap_77.png` | Monthly GHI profile across all 77 districts, ranked by annual GHI |
+| `chart5_p90_ratio_77.png` | Annual P90/P50 GHI ratio by district, lower ratio indicating higher inter-annual resource risk |
+| `chart5b_p90_monsoon_ratio_77.png` | Monsoon-season (Jun-Sep) P90/P50 GHI ratio by district, isolating cash-flow risk during the monsoon period specifically |
+| `chart6_monthly_cov_heatmap_77.png` | Inter-annual coefficient of variation by month and district |
+| `chart7a_dscr_heatmap_scenario_a.png` | DSCR sensitivity, tariff by CAPEX, Scenario A (generation-1, pre-2022 regulated tariff) |
+| `chart7b_dscr_heatmap_scenario_b.png` | DSCR sensitivity, tariff by CAPEX, Scenario B (competitive tariff bidding, approximately 2023-2026) |
+| `chart8_ghi_vs_enso.png` | System-wide GHI anomaly against the Oceanic Nino Index (ONI), dual-axis, testing ENSO as a driver of the 2015-2021 trough |
+| `chart9_correlation_matrix.png` | Inter-district annual GHI anomaly correlation matrix, all 77 districts |
+
+
+---
+
+## SQL Layer
+
+The relational layer (`sql/nepal_solar_sql_layer_mysql.sql`) re-implements
+the core Python analysis in MySQL 8: schema design, window functions
+(`LAG`, `RANK`, moving averages), gaps-and-islands trough detection, and a
+zone-level summary, to prove the same numbers hold up under a second,
+independently-verified computation path. It also loads the full DSCR
+sensitivity grid (`dim_dscr_scenario`, `fact_dscr_result`), so covenant
+breaches can be queried directly in SQL rather than only read off the
+Python heatmaps.
+
+**Implementation note:** this layer is written for MySQL 8.0+.
+MySQL has no native materialized view support, so `zone_summary`
+is implemented as a standard `VIEW` (recomputes on query, at no noticeable
+cost for 77 rows); empirical percentiles use `PERCENT_RANK()` rather than
+`PERCENTILE_CONT()` for compatibility with MySQL builds prior to 8.0.31.
+Query 3.5 also cross-checks the SQL-derived empirical percentile against the
+Python notebook's parametric (normal-distribution) percentile. The two
+methods disagree by roughly 0.3-1.3% on sampled districts, which is expected
+given a 19-observation series feeding a tail estimate, and is documented
+rather than reconciled away.
+
+The DSCR staging table (`stg_dscr`) is defined explicitly rather than left
+to the Import Wizard's type inference, so CAPEX, tariff, and DSCR figures
+load as fixed-precision `DECIMAL` rather than float. `dim_dscr_scenario`
+holds one row per distinct scenario definition (CAPEX, tariff, debt ratio,
+interest rate, loan term); `fact_dscr_result` resolves `scenario_id` by
+joining back to `dim_dscr_scenario` on those five defining columns.
+
+**To reproduce:**
+1. Run Part 1 of `sql/nepal_solar_sql_layer_mysql.sql` in MySQL Workbench
+   (8.0+) to create the schema and 9 tables.
+2. Import each Phase 2 CSV in `data/` as a staging table via Workbench's
+   Table Data Import Wizard:
+   - `nepal_districts_lookup.csv` into `stg_districts`
+   - `nepal_ghi_yearly_trend_77.csv` into `stg_ghi_annual`
+   - `nepal_ghi_p90_estimates_77.csv` into `stg_exceedance`
+   - `nepal_ghi_variability_77.csv` into `stg_variability`
+   - `nepal_ghi_scenarios_77.csv` into `stg_scenarios`
+   - `nepal_oni_annual.csv` directly into the existing `fact_oni` table
+   - `nepal_dscr_full_77.csv` into `stg_dscr`
+3. Run the Part 2 `INSERT` statements to move staged data into the
+   dimensional model, including the two-step `dim_dscr_scenario` /
+   `fact_dscr_result` load.
+4. Run the eight Part 3 queries. Results are saved in
+   `sql/query_results/`.
+
+---
+
+## Tableau Public Dashboard
+
+**Live:** https://public.tableau.com/app/profile/s.neupane/viz/NepalSolarResourceAnalysis-InteractiveDashboard/Dashboard
+
+A zone-level trend chart shows percentage change in GHI from the 2005
+baseline across Nepal's 13 solar resource zones (a physiographic
+Mountain-Hill-Terai grouping used for this analysis, not an official
+government classification), with the 2015-2021 trough period shaded for
+reference. Two ranked bar charts show the 30 most and 30 least variable
+districts by coefficient of variation. Two DSCR sensitivity tables (tariff
+on rows, CAPEX on columns) show the covenant ratio across the full tested
+grid for Scenario A and Scenario B, with a diverging color scale centered
+near the 1.20 covenant line. Published as a static extract, so it renders
+correctly with no dependency on the underlying MySQL database staying
+online.
+
+---
+
+## Power BI Report
+
+This report is not published via Power BI's "Publish to Web" feature.
+Instead, the report is distributed two ways:
+
+- **`powerbi/nepal_solar_dscr_model.pbix`** — the full interactive file.
+  Anyone with Power BI Desktop (free) can open it and use the live DSCR
+  tool as designed: Tariff, CAPEX, Project Year, and Resource Case
+  selectors, with two scenario-specific parameter sets and a Reset to
+  Defaults bookmark.
+- **`powerbi/nepal_solar_dscr_model.pdf`** — a static export for anyone who
+  wants to see the tool without installing Power BI Desktop. It captures
+  the report's default view plus the Scenario A and Scenario B toggled
+  states as separate pages. Sliders and buttons are not functional in this
+  format.
+
+DAX measures included: YoY GHI change, coefficient of variation, and
+P90/P50 ratio, plus a live what-if DSCR model driven by Tariff, CAPEX,
+Project Year, and Resource Case selectors.
+
+Tariff and CAPEX parameters are scenario-specific. Scenario A is bounded
+to its own tested grid (Tariff 6.50-7.50, CAPEX 75M-95M/MW), Scenario B to
+its own (Tariff 5.00-6.00, CAPEX 60M-85M/MW). Two toggle buttons switch
+between scenarios via bookmarks that swap both the active parameter set
+and which slider pair is visible, so any tariff/CAPEX combination shown
+under a given scenario sits inside that scenario's validated grid. Loan
+term (12-year Scenario A, 15-year Scenario B) is applied automatically
+inside the DSCR measure based on the selected scenario. A Reset to
+Defaults bookmark restores Scenario A, Project Year 1, CAPEX 75M, Tariff
+6.90, and the P50 resource case as the baseline view.
 
 ---
 
@@ -89,30 +272,70 @@ nepal-solar-resource-analysis/
 ├── README.md
 ├── requirements.txt
 ├── data/
-│   ├── nepal_ghi_annual_by_district.csv
-│   ├── nepal_ghi_monthly_by_district.csv
-│   ├── nepal_ghi_yearly_trend.csv
-│   ├── nepal_ghi_decline_summary.csv
-│   └── nepal_ghi_variability.csv
-└── charts/
-    ├── chart1_ghi_ranking.png
-    ├── chart2_zone_trends.png
-    ├── chart3_ghi_decline.png
-    └── chart4_monthly_heatmap.png
-
+│   ├── nepal_ghi_annual_by_district.csv        (Phase 1, 33 districts)
+│   ├── nepal_ghi_monthly_by_district.csv       (Phase 1, 33 districts)
+│   ├── nepal_ghi_yearly_trend.csv              (Phase 1, 33 districts)
+│   ├── nepal_ghi_decline_summary.csv           (Phase 1, 33 districts)
+│   ├── nepal_ghi_variability.csv               (Phase 1, 33 districts)
+│   ├── nepal_districts_lookup.csv              (Phase 2, 77 districts)
+│   ├── nepal_ghi_yearly_trend_77.csv           (Phase 2, 77 districts)
+│   ├── nepal_ghi_p90_estimates_77.csv          (Phase 2, 77 districts)
+│   ├── nepal_ghi_variability_77.csv            (Phase 2, 77 districts)
+│   ├── nepal_ghi_scenarios_77.csv              (Phase 2, 77 districts)
+│   ├── nepal_oni_annual.csv                    (Phase 2, ENSO correlation test)
+│   └── nepal_dscr_full_77.csv                  (Phase 2c, DSCR scenarios and sensitivity grids)
+├── charts/
+│   ├── chart1_ghi_ranking.png                  (Phase 1)
+│   ├── chart2_zone_trends.png                  (Phase 1)
+│   ├── chart3_ghi_decline.png                  (Phase 1)
+│   ├── chart4_monthly_heatmap.png              (Phase 1)
+│   ├── chart1_ghi_ranking_77.png                (Phase 2)
+│   ├── chart2_zone_trends_77.png                (Phase 2)
+│   ├── chart3_net_change_77.png                 (Phase 2)
+│   ├── chart4_monthly_heatmap_77.png            (Phase 2)
+│   ├── chart5_p90_ratio_77.png                  (Phase 2b)
+│   ├── chart5b_p90_monsoon_ratio_77.png         (Phase 2b)
+│   ├── chart6_monthly_cov_heatmap_77.png        (Phase 2b)
+│   ├── chart7a_dscr_heatmap_scenario_a.png      (Phase 2c)
+│   ├── chart7b_dscr_heatmap_scenario_b.png      (Phase 2c)
+│   ├── chart8_ghi_vs_enso.png                   (Phase 2d)
+│   └── chart9_correlation_matrix.png            (Phase 2d)
+├── sql/
+│   ├── nepal_solar_sql_layer_mysql.sql
+│   └── query_results/
+│       ├── 3.1_yoy_change.csv
+│       ├── 3.2_rolling_3yr_avg.csv
+│       ├── 3.3_net_change_ranked.csv
+│       ├── 3.4_trough_duration.csv
+│       ├── 3.5_empirical_p50_p90.csv
+│       ├── 3.6_zone_summary.csv
+│       ├── 3.7_dscr_breaches.csv
+│       └── 3.8_ghi_vs_oni.csv
+├── tableau/
+│   ├── nepal_solar_dashboard.twbx and tableau_dashboard_link.txt
+│   └── dashboard_screenshot.png
+└── powerbi/
+    ├── nepal_solar_dscr_model.pbix
+    ├── nepal_solar_dscr_model.pdf   (static export: default view + both scenario states)
+    └── dashboard_screenshot.png
 ```
-
 
 ---
 
 ## How to Run
 
 ```bash
-pip install requests pandas matplotlib seaborn numpy scipy
+pip install -r requirements.txt
 jupyter notebook Nepal_Solar_Resource_Analysis.ipynb
 ```
 
 No API key required. PVGIS ERA5 is a free public dataset.
+
+For the SQL layer, see "To reproduce" above. Requires MySQL Workbench 8.0+.
+
+For the Power BI report, open `powerbi/nepal_solar_dscr_model.pbix` in
+Power BI Desktop (free), or view `powerbi/nepal_solar_dscr_model.pdf` for
+a non-interactive preview.
 
 ---
 
@@ -124,13 +347,5 @@ https://re.jrc.ec.europa.eu/pvg_tools/en/
 
 ---
 
-## Phase Roadmap
-
-| Phase | Scope | Status |
-|-------|-------|--------|
-| Phase 1 | 33 districts, 2005-2023, GHI trend and variability | Complete |
-| Phase 2 | All 77 districts, baseline sensitivity analysis | Planned |
-| Phase 3 | Aerosol attribution using MERRA-2 AOD data | Planned |
-
-*This analysis is independent and not affiliated with any government
-body, financing institution, or project developer.*
+*Phase 1 published; Phase 2, SQL layer, Tableau dashboard, and Power BI
+report added July 2026.*

@@ -1,0 +1,14 @@
+zone,n_districts,zone_mean_ghi,zone_avg_cov_pct,zone_avg_p90_p50_ratio
+"Western Hills",10,1584,3.79,0.951
+"Western Terai",4,1719,3.48,0.955
+"Inner Terai",2,1731,3.42,0.956
+"Central Hills",14,1620,3.25,0.958
+"Mid-West Hills",9,1672,3.09,0.960
+"Eastern Hills",9,1552,2.90,0.963
+"Eastern Mountain",1,1606,2.86,0.963
+"Mid-West Terai",2,1806,2.83,0.964
+"Madhesh Terai",7,1754,2.81,0.964
+"Eastern Terai",4,1639,2.68,0.966
+"Far-West Hills",7,1627,2.51,0.968
+"Far-West Terai",2,1737,2.44,0.969
+"High Mountain",6,1816,2.38,0.970
