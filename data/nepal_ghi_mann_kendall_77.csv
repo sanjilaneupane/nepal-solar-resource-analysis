@@ -1,0 +1,78 @@
+district,trend,significant,p_value,sen_slope_kwh_m2_yr,tau,fdr_significant
+Baglung,decreasing,True,0.0358,-6.41,-0.357,False
+Kaski,no trend,False,0.0689,-5.934,-0.31,False
+Lamjung,no trend,False,0.0689,-5.872,-0.31,False
+Parbat,no trend,False,0.0501,-5.808,-0.333,False
+Myagdi,decreasing,True,0.0424,-5.669,-0.345,False
+Gulmi,no trend,False,0.0931,-5.442,-0.287,False
+Nuwakot,no trend,False,0.0501,-5.368,-0.333,False
+Syangja,no trend,False,0.2079,-5.329,-0.216,False
+Tanahun,no trend,False,0.1075,-5.302,-0.275,False
+Rasuwa,decreasing,True,0.0252,-5.248,-0.38,False
+Dhading,no trend,False,0.0802,-5.142,-0.298,False
+Sindhupalchok,no trend,False,0.0501,-5.142,-0.333,False
+Gorkha,no trend,False,0.1237,-5.097,-0.263,False
+Bhaktapur,no trend,False,0.0931,-5.075,-0.287,False
+Kathmandu,no trend,False,0.0931,-5.063,-0.287,False
+Lalitpur,no trend,False,0.0931,-5.025,-0.287,False
+Palpa,no trend,False,0.1617,-4.966,-0.24,False
+Kavrepalanchok,no trend,False,0.0802,-4.954,-0.298,False
+Pyuthan,no trend,False,0.1417,-4.917,-0.251,False
+Dolakha,no trend,False,0.0802,-4.828,-0.298,False
+Khotang,decreasing,True,0.0358,-4.772,-0.357,False
+Surkhet,no trend,False,0.1417,-4.738,-0.251,False
+Dang,no trend,False,0.1237,-4.71,-0.263,False
+Arghakhanchi,no trend,False,0.0931,-4.592,-0.287,False
+Manang,decreasing,True,0.0301,-4.578,-0.368,False
+Kapilvastu,no trend,False,0.1617,-4.507,-0.24,False
+Bhojpur,decreasing,True,0.0424,-4.491,-0.345,False
+Sankhuwasabha,decreasing,True,0.0174,-4.453,-0.404,False
+Solukhumbu,decreasing,True,0.0424,-4.44,-0.345,False
+Jajarkot,no trend,False,0.1417,-4.405,-0.251,False
+Bardiya,no trend,False,0.0931,-4.378,-0.287,False
+Okhaldhunga,decreasing,True,0.0424,-4.349,-0.345,False
+Rukum_East,no trend,False,0.0931,-4.313,-0.287,False
+Chitwan,no trend,False,0.2342,-4.267,-0.205,False
+Rolpa,no trend,False,0.1237,-4.26,-0.263,False
+Banke,no trend,False,0.0802,-4.185,-0.298,False
+Parasi,no trend,False,0.2342,-4.167,-0.205,False
+Taplejung,decreasing,True,0.0252,-4.143,-0.38,False
+Salyan,no trend,False,0.1837,-4.105,-0.228,False
+Nawalpur,no trend,False,0.2629,-4.025,-0.193,False
+Rukum_West,no trend,False,0.1075,-4.009,-0.275,False
+Makwanpur,no trend,False,0.2629,-4.005,-0.193,False
+Ramechhap,no trend,False,0.1417,-3.993,-0.251,False
+Dailekh,no trend,False,0.1837,-3.98,-0.228,False
+Rupandehi,no trend,False,0.1837,-3.938,-0.228,False
+Mustang,no trend,False,0.0802,-3.766,-0.298,False
+Kalikot,no trend,False,0.2629,-3.514,-0.193,False
+Dhankuta,no trend,False,0.0501,-3.495,-0.333,False
+Kailali,no trend,False,0.1837,-3.321,-0.228,False
+Kanchanpur,no trend,False,0.2342,-3.239,-0.205,False
+Sarlahi,no trend,False,0.3273,-3.231,-0.17,False
+Doti,no trend,False,0.1417,-3.219,-0.251,False
+Bajura,no trend,False,0.1237,-3.201,-0.263,False
+Sindhuli,no trend,False,0.2939,-3.01,-0.181,False
+Udayapur,no trend,False,0.2342,-3.009,-0.205,False
+Sunsari,no trend,False,0.0931,-2.931,-0.287,False
+Terhathum,no trend,False,0.1075,-2.908,-0.275,False
+Dhanusha,no trend,False,0.2629,-2.862,-0.193,False
+Achham,no trend,False,0.2079,-2.799,-0.216,False
+Dadeldhura,no trend,False,0.3273,-2.744,-0.17,False
+Baitadi,no trend,False,0.3273,-2.721,-0.17,False
+Rautahat,no trend,False,0.363,-2.72,-0.158,False
+Parsa,no trend,False,0.363,-2.72,-0.158,False
+Jumla,no trend,False,0.248,-2.712,-0.199,False
+Mahottari,no trend,False,0.2342,-2.699,-0.205,False
+Darchula,no trend,False,0.2342,-2.625,-0.205,False
+Panchthar,no trend,False,0.0802,-2.599,-0.298,False
+Siraha,no trend,False,0.4011,-2.53,-0.146,False
+Bara,no trend,False,0.4415,-2.421,-0.135,False
+Saptari,no trend,False,0.5289,-2.305,-0.111,False
+Bajhang,no trend,False,0.1837,-2.209,-0.228,False
+Dolpa,no trend,False,0.2342,-2.018,-0.205,False
+Ilam,no trend,False,0.1617,-1.885,-0.24,False
+Jhapa,no trend,False,0.2079,-1.569,-0.216,False
+Humla,no trend,False,0.1075,-1.515,-0.275,False
+Morang,no trend,False,0.3273,-1.292,-0.17,False
+Mugu,no trend,False,0.2079,-0.91,-0.216,False

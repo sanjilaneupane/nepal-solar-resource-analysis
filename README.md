@@ -20,10 +20,10 @@ body, financing institution, or project developer.*
 |---|---|---|
 | Phase 1 | 33 districts, 2005-2023, GHI trend and variability | Complete |
 | Phase 2 | All 77 districts, P50-P99 exceedance, trough risk scoring, DSCR financial model | Complete |
+| Phase 3 | Aerosol attribution (MERRA-2), NASA POWER cross-validation, Mann-Kendall/FDR trend re-test | Complete |
 | SQL layer | Schema, staging load, DSCR fact load, 8 analytical queries (MySQL 8) | Complete |
 | Tableau Public dashboard | Zone trend, district variability rankings, DSCR sensitivity tables | Complete |
 | Power BI report | DAX measures, live what-if DSCR model, scenario-constrained sliders | Complete |
-| Phase 3 | Aerosol attribution using NASA MERRA-2 data | Planned |
 
 ---
 
@@ -113,12 +113,7 @@ test on run length, reconciled against a systematic enumeration of every
 sustained below-average period in the 19-year record. An ENSO/ONI
 correlation test (Pearson r = -0.137, p = 0.576) rules out that mechanism
 as the trough's primary driver, leaving aerosol loading from the
-Indo-Gangetic Plain as the open attribution question for Phase 3. An
-inter-district correlation matrix (average pairwise r = 0.824) tests and
-substantiates the use of a system-wide resource basis in the financial
-model, while identifying specific districts (Humla, Mugu, Dolpa, Jumla)
-where correlation with the rest of the network is materially weaker and
-that basis does not hold as cleanly.
+Indo-Gangetic Plain as the as the attribution question tested directly in Phase 3, below. An inter-district correlation matrix (average pairwise r = 0.824) tests and substantiates the use of a system-wide resource basis in the financial model, while identifying specific districts (Humla, Mugu, Dolpa, Jumla) where correlation with the rest of the network is materially weaker and that basis does not hold as cleanly.
 
 The financial core of Phase 2 is a two-scenario debt service coverage ratio
 (DSCR) model: Scenario A represents Nepal's generation-1 solar cohort at
@@ -163,6 +158,106 @@ is reported plainly rather than omitted.
 
 
 ---
+
+## Phase 3: Independent Validation of the 2015-2021 Trough
+
+Phase 2 validated the 2015-2021 GHI trough through bootstrap resampling,
+a Wald-Wolfowitz runs test, and a permutation test on run length, and
+ruled out El Nino/La Nina cycles as a driver (ONI correlation
+r = -0.137, p = 0.576). Phase 3 stress-tests the finding three further
+ways: testing the remaining candidate physical driver (aerosol
+loading), cross-checking the trough against a second, independently-
+sourced dataset, and re-testing the underlying trend with a method that
+corrects for the multiple-comparisons problem of running 77 independent
+per-district significance tests.
+
+**Aerosol attribution (NASA MERRA-2 AOD).** Same-year AOD vs. GHI
+anomaly correlation is weak and non-significant (r = -0.136,
+p = 0.579). Trough-period AOD (2015-2021 mean 0.3611) is not
+significantly elevated relative to the rest of the record (mean 0.3487;
+Welch's t = 1.403, p = 0.180). The causally relevant lag test, AOD
+leading GHI by one year, is a clean null (r = 0.036, p = 0.887); the
+one nominally significant raw result (AOD lagging GHI, p = 0.007) runs
+in the wrong time direction for causality and weakens substantially
+once both series are detrended (p = 0.084). Aerosol loading from the
+Indo-Gangetic Plain is ruled out as the trough's primary driver, at the
+same confidence tier as the ENSO test.
+
+**Independent cross-validation (NASA POWER).** Every result up to this
+point rested on one dataset, PVGIS ERA5. NASA POWER estimates solar
+irradiance through a satellite radiative-transfer retrieval (CERES/
+GEWEX SRB), a methodologically distinct approach from ERA5's data-
+assimilation reanalysis. POWER's solar variables are not derived from
+MERRA-2. ERA5 and POWER agree closely at the system level (r = 0.757,
+p = 0.0002). POWER's own data independently confirms the trough: -3.19%
+mean anomaly during 2015-2021 versus -0.44% for the remaining years
+(Welch's t = -2.344, p = 0.034). At district level, 76 of 77 districts
+individually show statistically significant agreement between the two
+products (r ranging from 0.424 to 0.909); only one district sits above
+the conventional significance threshold (p = 0.0705), and even there
+the correlation is positive, not contradictory.
+
+**Trend re-test, corrected for multiple comparisons (Mann-Kendall /
+Sen's slope).** The Phase 1/2 trend figures (-1.4% for 33 districts,
+-1.7% for 77) are two-point endpoint comparisons, sensitive to
+whichever years sit at the record's start and end. A rank-based
+Mann-Kendall test on the full 19-year system-wide series finds no
+statistically significant monotonic trend (Tau = -0.228, p = 0.184), as expected, since a mid-record trough followed by recovery is a
+different shape than a steady decline. Sen's slope estimates a -3.89
+kWh/m²/year rate (-70.1 kWh/m² total over 18 intervals, 4.07% of the
+2005 level). At district level, 10 of 77 districts show a
+statistically significant individual trend before correction, close
+to the ~3.9 expected by chance alone across 77 independent tests at
+this threshold; after Benjamini-Hochberg false discovery rate
+correction, zero districts remain significant, consistent with the
+trough being a shared, system-wide event rather than a handful of
+noisy districts.
+
+**Synthesis: four independent tests, one finding.**
+
+| Test | Tests whether the trough is... | Result |
+|---|---|---|
+| ENSO/ONI correlation (Phase 2) | ...driven by El Nino/La Nina | r = -0.137, p = 0.576 - ruled out |
+| Aerosol loading (Phase 3) | ...driven by Indo-Gangetic aerosol | leading-year r = 0.036, p = 0.887 - ruled out |
+| NASA POWER cross-validation (Phase 3) | ...an ERA5-specific artifact | r = 0.757, p = 0.0002; trough t = -2.344, p = 0.034 - confirmed independently |
+| Mann-Kendall + FDR correction (Phase 3) | ...a multiple-testing false positive | 0 of 77 districts significant after correction - system-wide, not noise |
+
+None of these tests identifies *why* the trough happened. That
+remains an open question, and no recurrence probability is claimed.
+Together, they establish that the trough is not a product of the
+dataset used to detect it, not explained by either candidate physical
+mechanism tested, and not an artifact of testing enough districts that
+something looks significant by chance.
+
+**Implication for forecasting.** ERA5 and NASA POWER are two of the
+most widely used open-access sources for solar resource estimation,
+built on different measurement methodologies (assimilation-based
+reanalysis versus satellite radiative-transfer retrieval). Both
+independently reproduce the same 2015-2021 trough. This does not
+establish that the trough will recur, no mechanism has been confirmed,
+but it does establish that the trough is not an artifact of choosing
+one dataset over the other. A yield forecast built on either source
+already carries this signal in its historical record. The practical
+consequence: resource assessments drawing on ERA5 or NASA POWER should
+test explicitly for sustained multi-year troughs, not rely on
+single-year P50/P90 exceedance alone, since exceedance statistics do
+not surface a multi-year, sub-baseline run the way a duration-based
+test does.
+
+### Phase 3 Data Files
+
+| File | Description |
+|------|-------------|
+| `nepal_aerosol_aod_annual.csv` | Annual system-wide MERRA-2 AOD (550nm), 2005-2023, for the aerosol correlation test |
+| `nepal_ghi_power_annual_77.csv` | NASA POWER annual GHI per district per year, national coverage, for cross-validation |
+| `nepal_ghi_era5_vs_power_concordance_77.csv` | Per-district ERA5-vs-POWER correlation and significance |
+| `nepal_ghi_mann_kendall_77.csv` | Per-district Mann-Kendall trend, Sen's slope, and FDR-corrected significance |
+
+### Phase 3 Charts
+
+| Chart | Description |
+|-------|-------------|
+| `chart10_ghi_vs_aod.png` | System-wide GHI anomaly against MERRA-2 aerosol optical depth (AOD), dual-axis, testing aerosol loading as a driver of the 2015-2021 trough |
 
 ## SQL Layer
 
@@ -236,12 +331,12 @@ online.
 This report is not published via Power BI's "Publish to Web" feature.
 Instead, the report is distributed two ways:
 
-- **`powerbi/nepal_solar_dscr_model.pbix`** — the full interactive file.
+- **`powerbi/nepal_solar_dscr_model.pbix`**, the full interactive file.
   Anyone with Power BI Desktop (free) can open it and use the live DSCR
   tool as designed: Tariff, CAPEX, Project Year, and Resource Case
   selectors, with two scenario-specific parameter sets and a Reset to
   Defaults bookmark.
-- **`powerbi/nepal_solar_dscr_model.pdf`** — a static export for anyone who
+- **`powerbi/nepal_solar_dscr_model.pdf`**, a static export for anyone who
   wants to see the tool without installing Power BI Desktop. It captures
   the report's default view plus the Scenario A and Scenario B toggled
   states as separate pages. Sliders and buttons are not functional in this
@@ -272,34 +367,41 @@ nepal-solar-resource-analysis/
 ├── README.md
 ├── requirements.txt
 ├── data/
-│   ├── nepal_ghi_annual_by_district.csv        (Phase 1, 33 districts)
-│   ├── nepal_ghi_monthly_by_district.csv       (Phase 1, 33 districts)
-│   ├── nepal_ghi_yearly_trend.csv              (Phase 1, 33 districts)
-│   ├── nepal_ghi_decline_summary.csv           (Phase 1, 33 districts)
-│   ├── nepal_ghi_variability.csv               (Phase 1, 33 districts)
-│   ├── nepal_districts_lookup.csv              (Phase 2, 77 districts)
-│   ├── nepal_ghi_yearly_trend_77.csv           (Phase 2, 77 districts)
-│   ├── nepal_ghi_p90_estimates_77.csv          (Phase 2, 77 districts)
-│   ├── nepal_ghi_variability_77.csv            (Phase 2, 77 districts)
-│   ├── nepal_ghi_scenarios_77.csv              (Phase 2, 77 districts)
-│   ├── nepal_oni_annual.csv                    (Phase 2, ENSO correlation test)
-│   └── nepal_dscr_full_77.csv                  (Phase 2c, DSCR scenarios and sensitivity grids)
+│   ├── nepal_ghi_annual_by_district.csv            (Phase 1, 33 districts)
+│   ├── nepal_ghi_monthly_by_district.csv           (Phase 1, 33 districts)
+│   ├── nepal_ghi_yearly_trend.csv                  (Phase 1, 33 districts)
+│   ├── nepal_ghi_decline_summary.csv               (Phase 1, 33 districts)
+│   ├── nepal_ghi_variability.csv                   (Phase 1, 33 districts)
+│   ├── nepal_districts_lookup.csv                  (Phase 2, 77 districts)
+│   ├── nepal_ghi_yearly_trend_77.csv               (Phase 2, 77 districts)
+│   ├── nepal_ghi_p90_estimates_77.csv              (Phase 2, 77 districts)
+│   ├── nepal_ghi_variability_77.csv                (Phase 2, 77 districts)
+│   ├── nepal_ghi_scenarios_77.csv                  (Phase 2, 77 districts)
+│   ├── nepal_oni_annual.csv                        (Phase 2, ENSO correlation test)
+│   ├── nepal_dscr_full_77.csv                      (Phase 2c, DSCR scenarios and sensitivity grids)
+│   ├── nepal_aerosol_aod_annual.csv                (Phase 3, MERRA-2 AOD)
+│   ├── nepal_ghi_power_annual_77.csv               (Phase 3, NASA POWER cross-validation)
+│   ├── nepal_ghi_era5_vs_power_concordance_77.csv  (Phase 3, per-district concordance)
+│   └── nepal_ghi_mann_kendall_77.csv               (Phase 3, Mann-Kendall/FDR trend re-test)
+├── scripts/
+│   └── phase3_step1_merra2_extraction.py            (one-time, offline MERRA-2 download; not part of Restart & Run All)
 ├── charts/
-│   ├── chart1_ghi_ranking.png                  (Phase 1)
-│   ├── chart2_zone_trends.png                  (Phase 1)
-│   ├── chart3_ghi_decline.png                  (Phase 1)
-│   ├── chart4_monthly_heatmap.png              (Phase 1)
-│   ├── chart1_ghi_ranking_77.png                (Phase 2)
-│   ├── chart2_zone_trends_77.png                (Phase 2)
-│   ├── chart3_net_change_77.png                 (Phase 2)
-│   ├── chart4_monthly_heatmap_77.png            (Phase 2)
-│   ├── chart5_p90_ratio_77.png                  (Phase 2b)
-│   ├── chart5b_p90_monsoon_ratio_77.png         (Phase 2b)
-│   ├── chart6_monthly_cov_heatmap_77.png        (Phase 2b)
-│   ├── chart7a_dscr_heatmap_scenario_a.png      (Phase 2c)
-│   ├── chart7b_dscr_heatmap_scenario_b.png      (Phase 2c)
-│   ├── chart8_ghi_vs_enso.png                   (Phase 2d)
-│   └── chart9_correlation_matrix.png            (Phase 2d)
+│   ├── chart1_ghi_ranking.png                       (Phase 1)
+│   ├── chart2_zone_trends.png                       (Phase 1)
+│   ├── chart3_ghi_decline.png                       (Phase 1)
+│   ├── chart4_monthly_heatmap.png                   (Phase 1)
+│   ├── chart1_ghi_ranking_77.png                    (Phase 2)
+│   ├── chart2_zone_trends_77.png                    (Phase 2)
+│   ├── chart3_net_change_77.png                     (Phase 2)
+│   ├── chart4_monthly_heatmap_77.png                (Phase 2)
+│   ├── chart5_p90_ratio_77.png                      (Phase 2b)
+│   ├── chart5b_p90_monsoon_ratio_77.png             (Phase 2b)
+│   ├── chart6_monthly_cov_heatmap_77.png            (Phase 2b)
+│   ├── chart7a_dscr_heatmap_scenario_a.png          (Phase 2c)
+│   ├── chart7b_dscr_heatmap_scenario_b.png          (Phase 2c)
+│   ├── chart8_ghi_vs_enso.png                       (Phase 2d)
+│   ├── chart9_correlation_matrix.png                (Phase 2d)
+│   └── chart10_ghi_vs_aod.png                       (Phase 3)
 ├── sql/
 │   ├── nepal_solar_sql_layer_mysql.sql
 │   └── query_results/
@@ -312,14 +414,12 @@ nepal-solar-resource-analysis/
 │       ├── 3.7_dscr_breaches.csv
 │       └── 3.8_ghi_vs_oni.csv
 ├── tableau/
-│   ├── nepal_solar_dashboard.twbx and tableau_dashboard_link.txt
+│   ├── nepal_solar_dashboard.twbx (or tableau_dashboard_link.txt if the file is too large)as the attribution question tested directly in Phase 3, below
 │   └── dashboard_screenshot.png
 └── powerbi/
     ├── nepal_solar_dscr_model.pbix
-    ├── nepal_solar_dscr_model.pdf   (static export: default view + both scenario states)
-    └── dashboard_screenshot.png
-```
-
+    ├── nepal_solar_dscr_model.pdf
+   └── dashboard_screenshot.png
 ---
 
 ## How to Run
@@ -345,7 +445,17 @@ European Commission, Joint Research Centre (JRC).
 PVGIS ERA5 solar radiation database.
 https://re.jrc.ec.europa.eu/pvg_tools/en/
 
+
+NASA Langley Research Center (LaRC), POWER Project.
+https://power.larc.nasa.gov/
+
+NASA Global Modeling and Assimilation Office (GMAO).
+MERRA-2 M2TMNXAER: 2d, Monthly Mean, Time-Averaged, Single-Level,
+Assimilation, Aerosol Diagnostics.
+https://disc.gsfc.nasa.gov/
+
+
 ---
 
-*Phase 1 published; Phase 2, SQL layer, Tableau dashboard, and Power BI
-report added July 2026.*
+*Phase 1 published; Phase 2, SQL layer, Tableau dashboard, Power BI
+report, and Phase 3 added July 2026.*
